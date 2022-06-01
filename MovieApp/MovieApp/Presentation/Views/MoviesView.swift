@@ -7,9 +7,34 @@
 
 import SwiftUI
 
-struct MoviesView {
+struct MoviesView: View {
     
-    var  body: some View {
+    @ObservedObject var movieManager = MovieDownloadManager()
+    
+    var body: some View {
+        VStack {
+            Button {
+                movieManager.getNowPlaying()
+            } label: {
+                Text("Get movies")
+            }
+
+            List {
+                ForEach(movieManager.movies) { movie in
+                    let title = movie.title ?? ""
+                    Text("Movie \(title)")
+                }
+            }
+            .onAppear {
+                
+            }
+        }
         
+    }
+}
+
+struct MoviesView_Previews: PreviewProvider {
+    static var previews: some View {
+        MoviesView()
     }
 }
