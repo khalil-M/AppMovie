@@ -14,6 +14,7 @@
 		5EC289B32846BD25002657B5 /* MovieAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC289B22846BD25002657B5 /* MovieAppTests.swift */; };
 		5EC289BD2846BD25002657B5 /* MovieAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC289BC2846BD25002657B5 /* MovieAppUITests.swift */; };
 		5EC289BF2846BD25002657B5 /* MovieAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC289BE2846BD25002657B5 /* MovieAppUITestsLaunchTests.swift */; };
+		5EC289CF2846C47D002657B5 /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC289CE2846C47D002657B5 /* MoviesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		5EC289B82846BD25002657B5 /* MovieAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC289BC2846BD25002657B5 /* MovieAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppUITests.swift; sourceTree = "<group>"; };
 		5EC289BE2846BD25002657B5 /* MovieAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5EC289CE2846C47D002657B5 /* MoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,9 @@
 		5EC289A02846BD23002657B5 /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
+				5EC289CD2846C199002657B5 /* Data */,
+				5EC289CC2846C18E002657B5 /* Business */,
+				5EC289CB2846C185002657B5 /* Presentation */,
 				5EC289A12846BD23002657B5 /* MovieAppApp.swift */,
 				5EC289A32846BD23002657B5 /* ContentView.swift */,
 				5EC289A52846BD25002657B5 /* Assets.xcassets */,
@@ -125,6 +130,36 @@
 				5EC289BE2846BD25002657B5 /* MovieAppUITestsLaunchTests.swift */,
 			);
 			path = MovieAppUITests;
+			sourceTree = "<group>";
+		};
+		5EC289CB2846C185002657B5 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				5EC289D02846C485002657B5 /* Views */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		5EC289CC2846C18E002657B5 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		5EC289CD2846C199002657B5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		5EC289D02846C485002657B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5EC289CE2846C47D002657B5 /* MoviesView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EC289A42846BD23002657B5 /* ContentView.swift in Sources */,
+				5EC289CF2846C47D002657B5 /* MoviesView.swift in Sources */,
 				5EC289A22846BD23002657B5 /* MovieAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
