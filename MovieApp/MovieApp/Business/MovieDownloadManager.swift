@@ -5,7 +5,7 @@
 //  Created by Khalil-Mhelheli on 1/6/2022.
 
 import Foundation
-
+import Combine
 protocol IMovieDownloadManager {
     func getNowPlaying()
     func getUpcoming()
@@ -31,6 +31,7 @@ enum MovieURL: String {
 final class MovieDownloadManager: ObservableObject {
     
     @Published var movies = [Movie]()
+    private var cancellables = Set<AnyCancellable>()
     
     static var baseURL = "https://api.themoviedb.org/3/movie/"
     
@@ -47,15 +48,21 @@ final class MovieDownloadManager: ObservableObject {
     }
 
     private func getMovies(movieUrl: MovieURL) {
-        NetworkManager<MovieResponse>.fetch(from: movieUrl.urlString) { result in
-            switch result {
-            case .success(let movieResponse):
-                self.movies = movieResponse.results
-            case .failure(let err):
-                print(err)
+        NetworkManager<MovieResponse>
+            .fetch(from: movieUrl.urlString)
+            .sink { completion in
+                switch completion{
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error)
+                }
+            } receiveValue: { [weak self] response in
+                self?.movies = response.results
             }
-        }
+            .store(in: &cancellables)
+
+        
     }
 
-    
 }

@@ -6,24 +6,25 @@
 //
 
 import Foundation
-import Alamofire
+import Combine
 
 final class NetworkManager<T: Codable> {
-    static func fetch(from urlString: String, completion: @escaping (Result<T, NetworkError>) -> Void) {
-        AF.request(urlString).responseDecodable(of: T.self) { resp in
-            if resp.error != nil {
-                completion(.failure(.invalidResponse))
-                print(resp.error!)
-                return
+    static func fetch(from urlString: String) -> AnyPublisher<T, NetworkError> {
+        let url = URL(string: urlString)!
+        let publisher =  URLSession.shared.dataTaskPublisher(for: url)
+        return publisher
+            .map(\.data)
+            .decode(type: T.self, decoder: JSONDecoder())
+            .mapError { error in
+                switch error {
+                case is Swift.DecodingError:
+                    return NetworkError.invalidResponse
+                default:
+                    return NetworkError.nilResponse
+                }
             }
-            
-            if let payload = resp.value  {
-                completion(.success(payload))
-                return
-            }
-            
-            completion(.failure(.nilResponse))
-        }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 }
 
