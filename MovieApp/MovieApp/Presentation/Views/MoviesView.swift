@@ -11,12 +11,18 @@ struct MoviesView: View {
     
     @ObservedObject var movieManager = MovieDownloadManager()
     
+
     var body: some View {
         VStack {
             List {
                 ForEach(movieManager.movies) { movie in
-                    let title = movie.title ?? ""
-                    Text("Movie \(title)")
+                    NavigationLink {
+                        MovieDetailView(movie: movie)
+                    } label: {
+                        MovieCell(movie: movie)
+                    }
+                    .buttonStyle(.plain)
+                    .listRowBackground(Color.clear)
                 }
             }
             .onAppear {

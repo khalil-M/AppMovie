@@ -25,55 +25,41 @@ struct MovieCell: View {
     }
     
     @ViewBuilder
-    private var moviePoster: some View {
-        let orangeColor = Color.orange
-        let redColor = Color.red
-        
-        if movie.voteAverage > 5.0 {
-            ZStack {
-                Circle()
-                    .trim(from: 0, to: CGFloat(movie.voteAverage))
-                    .stroke( orangeColor, lineWidth: 4)
-                    .frame(width: 50)
-                    .rotationEffect(.degrees(-90))
-                Circle()
-                    .trim(from: 0, to: 1)
-                    .stroke(Color.orange.opacity(0.2), lineWidth: 4)
-                    .frame(width: 50)
-                    .rotationEffect(.degrees(-90))
-                Text(String.init(format: "%0.2f", movie.vote_average ?? 0.0))
-                    .foregroundColor(.orange)
-                    .font(.subheadline)
-            }
-        } else {
-            ZStack {
-                Circle()
-                    .trim(from: 0, to: CGFloat(movie.voteAverage))
-                    .stroke( redColor, lineWidth: 4)
-                    .frame(width: 50)
-                    .rotationEffect(.degrees(-90))
-                Circle()
-                    .trim(from: 0, to: 1)
-                    .stroke(Color.orange.opacity(0.2), lineWidth: 4)
-                    .frame(width: 50)
-                    .rotationEffect(.degrees(-90))
-                Text(String.init(format: "%0.2f", movie.vote_average ?? 0.0))
-                    .foregroundColor(.orange)
-                    .font(.subheadline)
-            }
+    private var movieVotes: some View {
+        ZStack {
+            Circle()
+                .trim(from: 0, to: CGFloat(movie.voteAverage))
+                .stroke(Color.orange, lineWidth: 4)
+                .rotationEffect(.degrees(-90))
+            Circle()
+                .trim(from: 0, to: 1)
+                .stroke(Color.orange.opacity(0.2), lineWidth: 4)
+                .frame(width: 50)
+                .rotationEffect(.degrees(-90))
+            Text(String.init(format: "0.2f", movie.vote_average ?? 0.0))
+                .font(.subheadline)
         }
-        
     }
     
     private var movieTitle: some View {
-        Text("title")
+        Text(movie.titleWithLanguage)
             .font(.system(size: 15))
             .bold()
             .foregroundColor(.blue)
     }
     
-    private var movieVotes: some View {
-        AsyncImage(url: URL(string: movie.posterPath))
+    private var moviePoster: some View {
+        CachedAsyncImage(url: URL(string: movie.posterPath)) { img in
+            img.resizable()
+        }placeholder: {
+            Rectangle().foregroundColor(Color.gray.opacity(0.4))
+        }
+        .frame(width: 100, height: 160)
+        .animation(.easeOut(duration: 0.5))
+        .transition(.opacity)
+        .scaledToFill()
+        .cornerRadius(15)
+        .shadow(radius: 15)
     }
     
     private var movieReleaseData: some View {
@@ -86,6 +72,7 @@ struct MovieCell: View {
         Text(movie.overview ?? "")
             .foregroundColor(.gray)
             .font(.body)
+            .lineLimit(3)
     }
 }
 
