@@ -9,24 +9,41 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
+    
+    @State private var showSettings = false
+    
+    
     var body: some View {
         
-        TabView {
-            MoviesView()
-                .tabItem {
-                    Image(systemName: "play")
-                    Text("Movies")
-                }
-            DiscoverView()
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("Discover")
-                }
+        NavigationView {
+            Group {
+                HomeTabView()
+            }
+            .navigationBarTitle("Movies", displayMode: .automatic)
+            .navigationBarItems(trailing: VStack {
+                settingButton
+            })
+            .sheet(isPresented: $showSettings) {
+                SettingView(isPresented: $showSettings)
+            }
         }
-        .padding()
         
     }
+    
+    private var settingButton: some View {
+        Button {
+            showSettings.toggle()
+        } label: {
+            HStack {
+                Image(systemName: "gear")
+                    .imageScale(.large)
+                    .foregroundColor(.gray)
+            }
+            .frame(width: 30, height: 30)
+        }
+    }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

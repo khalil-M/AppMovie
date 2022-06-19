@@ -12,6 +12,7 @@
 		5E6A06BA28481282000AB0EC /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A06B928481282000AB0EC /* DiscoverView.swift */; };
 		5E6A06BC2848168E000AB0EC /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A06BB2848168E000AB0EC /* MovieCell.swift */; };
 		5EB8CD5D28480D650077C9A4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB8CD5C28480D650077C9A4 /* NetworkManager.swift */; };
+		5EBEC589285FC28A00AC52D6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBEC588285FC28A00AC52D6 /* SettingView.swift */; };
 		5EC289A22846BD23002657B5 /* MovieAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC289A12846BD23002657B5 /* MovieAppApp.swift */; };
 		5EC289A42846BD23002657B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC289A32846BD23002657B5 /* ContentView.swift */; };
 		5EC289A62846BD25002657B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EC289A52846BD25002657B5 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		5EC289BD2846BD25002657B5 /* MovieAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC289BC2846BD25002657B5 /* MovieAppUITests.swift */; };
 		5EC289BF2846BD25002657B5 /* MovieAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC289BE2846BD25002657B5 /* MovieAppUITestsLaunchTests.swift */; };
 		5EC289CF2846C47D002657B5 /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC289CE2846C47D002657B5 /* MoviesView.swift */; };
+		5EE67D33285BE74E0036A380 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE67D32285BE74E0036A380 /* HomeTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,7 @@
 		5E6A06B928481282000AB0EC /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		5E6A06BB2848168E000AB0EC /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		5EB8CD5C28480D650077C9A4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5EBEC588285FC28A00AC52D6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		5EC2899E2846BD23002657B5 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC289A12846BD23002657B5 /* MovieAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppApp.swift; sourceTree = "<group>"; };
 		5EC289A32846BD23002657B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 		5EC289BC2846BD25002657B5 /* MovieAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppUITests.swift; sourceTree = "<group>"; };
 		5EC289BE2846BD25002657B5 /* MovieAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5EC289CE2846C47D002657B5 /* MoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesView.swift; sourceTree = "<group>"; };
+		5EE67D32285BE74E0036A380 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,10 +181,12 @@
 		5EC289D02846C485002657B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5EC289A32846BD23002657B5 /* ContentView.swift */,
-				5E6A06B928481282000AB0EC /* DiscoverView.swift */,
 				5EC289CE2846C47D002657B5 /* MoviesView.swift */,
+				5EC289A32846BD23002657B5 /* ContentView.swift */,
+				5EBEC588285FC28A00AC52D6 /* SettingView.swift */,
+				5E6A06B928481282000AB0EC /* DiscoverView.swift */,
 				5E6A06BB2848168E000AB0EC /* MovieCell.swift */,
+				5EE67D32285BE74E0036A380 /* HomeTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -320,8 +326,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EB8CD5D28480D650077C9A4 /* NetworkManager.swift in Sources */,
+				5EBEC589285FC28A00AC52D6 /* SettingView.swift in Sources */,
 				5E6A06B528480F1E000AB0EC /* MovieResponse.swift in Sources */,
 				5E6A06BC2848168E000AB0EC /* MovieCell.swift in Sources */,
+				5EE67D33285BE74E0036A380 /* HomeTabView.swift in Sources */,
 				5E6A06B828480F86000AB0EC /* MovieDownloadManager.swift in Sources */,
 				5EC289A42846BD23002657B5 /* ContentView.swift in Sources */,
 				5E6A06BA28481282000AB0EC /* DiscoverView.swift in Sources */,

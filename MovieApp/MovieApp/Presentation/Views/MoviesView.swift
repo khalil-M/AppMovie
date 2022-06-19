@@ -13,12 +13,6 @@ struct MoviesView: View {
     
     var body: some View {
         VStack {
-            Button {
-                movieManager.getNowPlaying()
-            } label: {
-                Text("Get movies")
-            }
-
             List {
                 ForEach(movieManager.movies) { movie in
                     let title = movie.title ?? ""
@@ -26,7 +20,7 @@ struct MoviesView: View {
                 }
             }
             .onAppear {
-                
+                movieManager.getNowPlaying()
             }
         }
         
