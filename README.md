@@ -1,5 +1,5 @@
 # AppMovie
-A Take-Home assignment that makes use of IMDB's public apis, using declarative paradigm(SwiftUI + Combine)
+A Take-Home assignment that makes use of Movie public apis, using declarative paradigm(SwiftUI + Combine)
 
 ## Table of Contents
 
