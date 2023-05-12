@@ -36,7 +36,7 @@ struct MovieCell: View {
                 .stroke(Color.orange.opacity(0.2), lineWidth: 4)
                 .frame(width: 50)
                 .rotationEffect(.degrees(-90))
-            Text(String.init(format: "0.2f", movie.vote_average ?? 0.0))
+            Text(String.init(format: "10%%", movie.vote_average ?? 0.0))
                 .font(.subheadline)
         }
     }
